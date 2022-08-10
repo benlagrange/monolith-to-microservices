@@ -9,10 +9,17 @@ services:
 # Use either `docker-compose` or individual `docker build` commands
 # Build
 script:
+<<<<<<< HEAD
   - docker-compose
   - docker tag udagram-api-feed benlagrange/udagram-api-feed:v1
   - docker tag udagram-api-user  benlagrange/udagram-api-user:v1
   - docker tag udagram-frontend benlagrange/udagram-frontend:v1
+=======
+  - docker-compose -f docker-compose-build.yaml build --parallel
+  - docker tag udagram-api-feed benlagrange/udagram-api-feed:v1
+  - docker tag udagram-api-user  benlagrange/udagram-api-user:v1
+  - docker tag udagram-frontend:local benlagrange/udagram-frontend:v1
+>>>>>>> d00b09d2a63d1abe31f270c42b5b717676b25c93
   - docker tag reverseproxy benlagrange/reverseproxy:v1
 # Do similar for other three images
 
