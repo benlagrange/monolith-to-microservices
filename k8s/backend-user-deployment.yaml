@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-user
+  labels:
+    service: backend-user
+    app: backend-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-user
+  template:
+    metadata:
+      labels:
+        app: backend-user
+        service: backend-user
+    spec:
+      containers:
+      - name: backend-user
+        image: benlagrange/udagram-api-user:v2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - secretRef:
+            name: udagram-secret
+        - configMapRef:
+            name: udagram-configmap
+        - secretRef:
+            name: aws-secret
