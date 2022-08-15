@@ -4,6 +4,7 @@ metadata:
   name: backend-user
   labels:
     service: backend-user
+    app: backend-user
 spec:    
   ports:
   - name: http
@@ -11,3 +12,4 @@ spec:
     targetPort: 8080
   selector:
     service: backend-user
+    app: backend-user

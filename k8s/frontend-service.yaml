@@ -14,4 +14,4 @@ spec:
     protocol: TCP
   selector:
     service: frontend
-  type: ClusterIP
+    app: frontend
