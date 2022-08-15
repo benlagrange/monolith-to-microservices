@@ -19,9 +19,10 @@ spec:
       containers:
       - name: backend-feed
         image: benlagrange/udagram-api-feed:v2
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
+          protocol: TCP
         envFrom:
         - secretRef:
             name: udagram-secret

@@ -28,6 +28,6 @@ after_success:
 
 - docker push benlagrange/udagram-api-feed:v2
 - docker push benlagrange/udagram-api-user:v2
-- docker push benlagrange/udagram-frontend:v2
+- docker push benlagrange/udagram-frontend:v7
 - docker push benlagrange/reverseproxy:v2
 # Do similar for other three images

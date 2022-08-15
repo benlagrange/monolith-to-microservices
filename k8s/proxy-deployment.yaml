@@ -1,6 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    service: reverseproxy
+    app: reverseproxy
   name: reverseproxy
 spec:
   replicas: 1
@@ -15,9 +18,10 @@ spec:
       containers:
       - name: reverseproxy
         image: benlagrange/reverseproxy:v2
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
+          protocol: TCP
         envFrom:
         - secretRef:
             name: udagram-secret

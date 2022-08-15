@@ -15,4 +15,3 @@ spec:
   selector:
     service: frontend
     app: frontend
-  type: ClusterIP
