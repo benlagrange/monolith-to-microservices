@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: udagram-configmap
+data:
+  POSTGRES_HOST: postgres.cv8fp0npdl44.us-east-1.rds.amazonaws.com
+  POSTGRES_DB: postgres
+  AWS_BUCKET: udagram-ben-bucket
+  AWS_REGION: us-east-1
+  AWS_PROFILE: udagram-final-dev
+  JWT_SECRET: testing
+  URL: http://a7968aa06a29e4d349e9bd4211d254a1-329443377.us-east-1.elb.amazonaws.com:8100

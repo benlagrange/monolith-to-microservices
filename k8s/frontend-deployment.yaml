@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    service: frontend
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+        service: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: benlagrange/udagram-frontend:v7
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol:  TCP
+        envFrom:
+        - secretRef:
+            name: udagram-secret
+        - configMapRef:
+            name: udagram-configmap
+        - secretRef:
+            name: aws-secret
